@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
@@ -38,6 +39,21 @@ public class Main {
         for (int i=0; i<100; i++) {
             uneAutreListe.add(rand.get());
         }
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("A");
+        arrayList.add("c");
+        arrayList.add("d");
+        arrayList.add("E");
+        arrayList.add("Fg");
+
+        Function<ArrayList<String>, String> concat = new Function<ArrayList<String>, String>() {
+            @Override
+            public String apply(ArrayList<String> strings) {
+                return String.join(" ", strings);
+            }
+        };
+        System.out.println(concat.apply(arrayList));
 
         Predicate<Integer> predicate = (i) -> i<4;
         System.out.println(uneAutreListe.size());
